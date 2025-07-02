@@ -1,15 +1,59 @@
+:root {
+    --primary-color: #d63031;
+    --dark-color: #111;
+    --light-color: #fff;
+    --nav-bg: #222;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
     background-color: #f5f5f5;
 }
 
 header {
-    background-color: #222;
+    background: url('https://via.placeholder.com/1200x500?text=Boxing+Gym') center/cover no-repeat;
     color: #fff;
-    padding: 1rem;
+    padding: 4rem 1rem;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #000;
+}
+
+header p {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    opacity: 0.8;
+}
+
+nav {
+    background-color: var(--nav-bg);
+}
+
+.menu-toggle {
+    display: none;
 }
 
 nav ul {
@@ -18,25 +62,83 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background-color: #333;
+    flex-wrap: wrap;
 }
 
 nav li {
-    margin: 0 1rem;
+    margin: 0.5rem 1rem;
 }
 
 nav a {
-    color: #fff;
+    color: var(--light-color);
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    border-bottom: 2px solid var(--primary-color);
 }
 
 main {
-    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 1rem;
 }
 
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #222;
-    color: #fff;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.gallery {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    display: none;
+}
+
+.gallery img.active {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: block;
+        color: #fff;
+        padding: 1rem;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+}
+
+.subpage-header {
+    background: var(--nav-bg);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.subpage-header h1 {
+    margin: 0;
+    color: var(--light-color);
+    font-size: 2rem;
 }

@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Highlight active navigation link
-  const page = location.pathname.split('/').pop();
+  let page = location.pathname.split('/').pop();
+  if (page === '' || page === '/') {
+    page = 'index.html';
+  }
   document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === page) {
+    const href = a.getAttribute('href');
+    if (
+      href === page ||
+      (page === 'index.html' && (href === '' || href === '/' || href === 'index.html'))
+    ) {
       a.classList.add('active');
     }
   });
